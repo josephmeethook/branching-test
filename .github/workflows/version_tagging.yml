@@ -12,11 +12,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   version_tag:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: .github/act_scripts
+    runs-on: ubuntu-18.04
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -27,7 +23,9 @@ jobs:
         python-version: '3.8.5'
 
     - name: Set Tag
-      run: python3 version_tag.py
+      shell: python
+      run: |
+      print("TEST OUTPUT")
 #
 ##      env:
 ##        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
