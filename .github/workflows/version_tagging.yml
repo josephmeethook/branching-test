@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: VersionTagging
+name: Release Versioning
 
 # Triggers the workflow on push or pull request
 on:
@@ -11,13 +11,14 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  version_tagging:
+  version_tag:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-python@v2
       with:
         python-version: '3.8.5'
+        path: .github/act_scripts/
     - run: python version_tag.py
 
 #    - name: Execute Python Script
