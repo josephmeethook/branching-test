@@ -32,5 +32,6 @@ jobs:
         python-version: '3.8.5'
 
     - name: Set Tag
+      shell: bash
       run: |
         echo pwd
