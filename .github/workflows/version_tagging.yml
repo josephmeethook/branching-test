@@ -14,15 +14,16 @@ jobs:
   version_tag:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Python
     - uses: actions/setup-python@v2
       with:
         python-version: '3.8.5'
-        path: .github/act_scripts/
-    - run: python version_tag.py
 
-#    - name: Execute Python Script
-#      run: |
-#        python version_tagging.py
+    - name: Set Tag
+        path: .github/act_scripts
+    - run: python version_tag.py
 #      env:
 #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
