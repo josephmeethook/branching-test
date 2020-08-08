@@ -24,8 +24,7 @@ jobs:
 
     - name: Set Tag
       shell: bash
-      working-directory: ./.github/act_scripts
-      run: python version_tag.py
+      run: python ./.github/act_scripts/version_tag.py
 
 #      env:
 #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
