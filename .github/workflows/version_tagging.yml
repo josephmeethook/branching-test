@@ -33,4 +33,4 @@ jobs:
 
     - name: Set Tag
       run: |
-        python3 version_tagging.py
+        echo pwd
