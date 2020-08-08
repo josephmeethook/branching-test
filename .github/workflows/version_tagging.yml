@@ -27,6 +27,6 @@ jobs:
         python-version: '3.8.5'
 
     - name: Set Tag
-      shell: python
+      shell: bash
       run: |
-        version_tagging.py
+        /opt/hostedtoolcache/Python/3.8.5/x64/bin/python version_tagging.py
