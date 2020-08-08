@@ -31,6 +31,5 @@ jobs:
         python-version: '3.8.5'
 
     - name: Set Tag
-      shell: python
       run: |
-        version_tagging.py
+        python3 version_tagging.py
