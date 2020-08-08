@@ -23,6 +23,7 @@ jobs:
         python-version: '3.8.5'
 
     - name: Set Tag
-      shell: python
+      shell: script
       run: |
-        print("TEST OUTPUT")
+        LATEST_TAG=git describe --tags $(git rev-list --tags --max-count=1)
+        echo $LATEST_TAG
