@@ -32,4 +32,5 @@ jobs:
         python-version: '3.8.5'
 
     - name: Set Tag
-      run: python ./act_scripts/version_tagging.py
+      run: pwd
+#      run: python ./act_scripts/version_tagging.py
