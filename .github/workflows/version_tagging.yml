@@ -21,9 +21,11 @@ jobs:
     - uses: actions/setup-python@v2
       with:
         python-version: '3.8.5'
+
     - name: Set Tag
-      uses: ./.github/act_scripts
-    - run: python version_tag.py
+      shell: python
+      working-directory: ./.github/act_scripts
+      run: python version_tag.py
 
 #      env:
 #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
