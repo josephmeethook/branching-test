@@ -18,6 +18,10 @@ jobs:
   version_tag:
     runs-on: ubuntu-18.04
     steps:
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
     - name: Checkout
       uses: actions/checkout@v2
 
@@ -27,6 +31,6 @@ jobs:
         python-version: '3.8.5'
 
     - name: Set Tag
-      shell: bash
+      shell: python
       run: |
-        /opt/hostedtoolcache/Python/3.8.5/x64/bin/python version_tagging.py
+        version_tagging.py
