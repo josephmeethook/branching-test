@@ -35,4 +35,5 @@ jobs:
       run: |
         pwd
         ls
+        python version_tagging.py
 #      run: python ./act_scripts/version_tagging.py
