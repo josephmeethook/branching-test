@@ -10,6 +10,10 @@ on:
     branches: [ development ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+defaults:
+  run:
+    working-directory: ./act_scripts
+
 jobs:
   version_tag:
     runs-on: ubuntu-18.04
@@ -23,6 +27,6 @@ jobs:
         python-version: '3.8.5'
 
     - name: Set Tag
-      shell: bash
+      shell: python
       run: |
-        echo ${GITHUB_REF#refs/tags/}
+        version_tagging.py
