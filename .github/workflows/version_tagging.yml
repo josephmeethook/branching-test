@@ -9,11 +9,6 @@ on:
   pull_request:
     branches: [ development ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-defaults:
-  run:
-    working-directory: act_scripts
-
 jobs:
   version_tag:
     runs-on: ubuntu-18.04
@@ -32,6 +27,7 @@ jobs:
         python-version: '3.8.5'
 
     - name: Set Tag
+      working-directory: act_scripts
       run: |
         pwd
         ls
