@@ -10,19 +10,26 @@ on:
     branches: [ development ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+defaults:
+  run:
+    working-directory: act_scripts
+
 jobs:
   version_tag:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
+#    - name: Dump GitHub context
+#      env:
+#        GITHUB_CONTEXT: ${{ toJson(github) }}
+#      run: echo "$GITHUB_CONTEXT"
+
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Python
+      uses: actions/setup-python@v2
       with:
         python-version: '3.8.5'
-        path: .github/act_scripts/
-    - run: python version_tag.py
 
-#    - name: Execute Python Script
-#      run: |
-#        python version_tagging.py
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Set Tag
+      run: python ./act_scripts/version_tagging.py
