@@ -25,7 +25,4 @@ jobs:
     - name: Set Tag
       shell: python
       run: |
-      print("TEST OUTPUT")
-#
-##      env:
-##        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        print("TEST OUTPUT")
