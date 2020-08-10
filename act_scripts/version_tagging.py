@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+from github import Github
 
 print("TEST OUTPUT")
-exit(0)
+# Create a Github instance using an access token
+g = Github("access_token")
