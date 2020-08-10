@@ -20,7 +20,6 @@ jobs:
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
 
     - name: Checkout
       uses: actions/checkout@v2
@@ -28,6 +27,7 @@ jobs:
     - name: Setup Python
       run: |
         python version_tagging.py
+
 
 
 
