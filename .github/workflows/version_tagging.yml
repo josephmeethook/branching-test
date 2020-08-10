@@ -9,27 +9,30 @@ on:
   pull_request:
     branches: [ development ]
 
+defaults:
+  run:
+    working-directory: act_scripts
+
 jobs:
   version_tag:
     runs-on: ubuntu-18.04
     steps:
-#    - name: Dump GitHub context
-#      env:
-#        GITHUB_CONTEXT: ${{ toJson(github) }}
-#      run: echo "$GITHUB_CONTEXT"
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
 
     - name: Checkout
       uses: actions/checkout@v2
 
     - name: Setup Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.8.5'
-
-    - name: Set Tag
-      working-directory: act_scripts
       run: |
-        pwd
-        ls
         python version_tagging.py
-#      run: python ./act_scripts/version_tagging.py
+
+
+
+#
+#    - name: Set Tag
+#      working-directory: act_scripts
+#      run: |
+#        python ./act_scripts/version_tagging.py
